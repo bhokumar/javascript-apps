@@ -21,7 +21,7 @@ gulp.task('styles', function(){
 		}))
 		.pipe(sourcemaps.init())
 		.pipe(autoPrefixer())
-		.pipe(concat('style.css'))
+		.pipe(concat('styles.css'))
 		.pipe(minifyCss())
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(DIST_PATH))
@@ -32,6 +32,7 @@ gulp.task('scripts', function(){
 	console.log('Starting scripts task');
 	return gulp.src(SCRIPTS_PATH)
 		.pipe(uglify())
+		.pipe(concat('scripts.js'))
 		.pipe(gulp.dest(DIST_PATH))
 		.pipe(livereload());
 });
